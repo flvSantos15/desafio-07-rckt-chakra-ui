@@ -1,9 +1,9 @@
 import {Flex} from '@chakra-ui/react'
 
-export function Home (){
+export function Banner(){
   return(
     <Flex>
-      Home
+      banner
     </Flex>
   )
 }
