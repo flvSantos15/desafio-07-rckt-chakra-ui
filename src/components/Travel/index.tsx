@@ -1,4 +1,4 @@
-import { Flex, Text, Box } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { Beach } from './Beach'
 import { Classic } from './Classic'
 import { Modern } from './Modern'
