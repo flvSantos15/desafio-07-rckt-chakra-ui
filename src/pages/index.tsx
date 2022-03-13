@@ -7,7 +7,7 @@ import { Continent } from '../components/Continent'
 
 const Home: NextPage = () => {
   return (
-    <Flex w='100%' flexDirection='column'>
+    <Flex w='100%' flexDirection='column' bg='#F5F8FA'>
 
       <Header />
 
