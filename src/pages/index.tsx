@@ -7,7 +7,11 @@ import { Continent } from '../components/Continent'
 
 const Home: NextPage = () => {
   return (
-    <Flex w='100%' flexDirection='column' bg='#F5F8FA'>
+    <Flex 
+      w='100%'
+      flexDirection='column' 
+      bg='#F5F8FA'
+    >
 
       <Header />
 
@@ -20,13 +24,18 @@ const Home: NextPage = () => {
       </Flex>
 
       <Flex 
-        w='839px' 
+        w={['100%', '839px']}
         h='101px' 
         mx='auto'
         mb='4rem'
         justifyContent='center'
       >
-        <Text fontWeight='500' fontSize='34px' textAlign='center' mb='2rem'>
+        <Text 
+          fontWeight='500' 
+          fontSize={['25px', '34px']} 
+          textAlign='center' 
+          mb='2rem'
+        >
           Vamos nessa?<br/>
           Então escolha seu continente
         </Text>
