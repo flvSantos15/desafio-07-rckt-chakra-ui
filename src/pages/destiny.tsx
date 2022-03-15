@@ -15,13 +15,13 @@ function Destiny(){
         border='1px solid red'
       >
         <Flex 
-          w='173px' 
-          h='72px'
-          ml='140px'
-          mt='360px'
+          w={['102px', '173px']}
+          h={['38px', '72px']}
+          ml={['120px', '140px']}
+          mt={['56px', '360px']}
           border='1px solid blue'
         >
-          <Text fontWeight='600' fontSize='48px' color='#fff'>
+          <Text fontWeight='600' fontSize={['28px', '48px']} color='#fff'>
             Europa
           </Text>
         </Flex>

@@ -4,7 +4,7 @@ export function Header() {
   return (
     <Flex 
       w='100%'
-      h='100px' 
+      h={['50px', '100px']}
       justifyContent='center' 
       alignItems='center'
     >
