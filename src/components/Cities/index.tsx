@@ -4,15 +4,15 @@ import { City } from './City'
 export function Cities() {
   return (
     <Flex
-      w='1160px'
-      h='700px'
+      w={['300px', '1160px']}
+      h={['100%', '700px']}
       mx='auto'
       flexDirection='column'
     >
       <Text fontWeight='500' fontSize='36px' mb='2rem'>
         Cidades +100
       </Text>
-      <SimpleGrid columns={4} spacing='4' mb='4rem'>
+      <SimpleGrid columns={[1, 4]} spacing='4' mb={['2rem', '4rem']}>
         <City
           alt={'londres'}
           city={'Londres'}

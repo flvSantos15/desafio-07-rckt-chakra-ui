@@ -10,14 +10,16 @@ function Destiny(){
       <Flex 
         backgroundImage='./img/Banner2.png'
         w='100%'
-        h='500px'
-        mb='4rem'
+        h={['150px', '500px']}
+        mb={['2rem', '4rem']}
+        border='1px solid red'
       >
         <Flex 
           w='173px' 
           h='72px'
           ml='140px'
           mt='360px'
+          border='1px solid blue'
         >
           <Text fontWeight='600' fontSize='48px' color='#fff'>
             Europa
