@@ -16,7 +16,6 @@ export function Travel (){
         w='85%'
         h={['174px', '145px']}
         pt={['0.5rem', '0']}
-        pl={['2rem', '0']}
       >
         <NightLife />
         <Beach />

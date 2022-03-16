@@ -7,12 +7,17 @@ export function Cities() {
       w={['300px', '1160px']}
       h={['100%', '700px']}
       mx='auto'
+      mb={['0', '4rem']}
       flexDirection='column'
     >
       <Text fontWeight='500' fontSize='36px' mb='2rem'>
         Cidades +100
       </Text>
-      <SimpleGrid columns={[1, 4]} spacing='4' mb={['2rem', '4rem']}>
+      <SimpleGrid 
+        columns={[1, 4]} 
+        spacing='4' 
+        mb={['2rem', '4rem']}
+      >
         <City
           alt={'londres'}
           city={'Londres'}

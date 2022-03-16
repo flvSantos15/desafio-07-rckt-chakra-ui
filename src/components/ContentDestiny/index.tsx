@@ -1,23 +1,24 @@
-import {Flex, Text} from '@chakra-ui/react'
+import { Flex, Text, Tooltip } from '@chakra-ui/react'
+import { InfoOutlineIcon } from '@chakra-ui/icons'
 
 export function ContentDestiny() {
-  return(
-    <Flex 
+  return (
+    <Flex
       w={['100%', '1160px']}
       mx={['auto']}
       mb={['2rem', '4rem']}
-      alignItems='center' 
+      alignItems='center'
       justifyContent={['center', 'space-between']}
       flexDirection={['column', 'row']}
     >
       <Flex w={['334px', '600px']} h={['146px', '211px']}>
         <Text color='#47585B' fontWeight='400' fontSize={['14px', '24px']} textAlign='justify'>
           A Europa é, por convenção, um dos seis continentes
-           do mundo. Compreendendo a península ocidental da 
-           Eurásia, a Europa geralmente divide-se da Ásia a
-            leste pela divisória de águas dos montes Urais, o 
-            rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a 
-            sudeste.
+          do mundo. Compreendendo a península ocidental da
+          Eurásia, a Europa geralmente divide-se da Ásia a
+          leste pela divisória de águas dos montes Urais, o
+          rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a
+          sudeste.
         </Text>
       </Flex>
       <Flex w={['343px', '490px']} h={['59px', '99px']} mt='0.5rem' justifyContent='center'>
@@ -56,9 +57,14 @@ export function ContentDestiny() {
           <Text fontWeight='600' fontSize={['24px', '48px']} color='#FFBA08'>
             27
           </Text>
-          <Text fontWeight='600' fontSize={['18px', '24px']}>
-            cidades +100
-          </Text>
+          <Flex alignItems='center'>
+            <Text fontWeight='600' fontSize={['18px', '24px']} mr='0.2rem'>
+              cidades +100
+            </Text>
+            <Tooltip hasArrow label="100 cidades" aria-label='A tooltip'>
+              <InfoOutlineIcon />
+            </Tooltip>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

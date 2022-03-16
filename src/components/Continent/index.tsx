@@ -8,6 +8,7 @@ export function Continent() {
     <Flex w='100%' mb={['0', '4rem']}>
       <Flex 
         backgroundImage='./img/ContinentImage.png' 
+        backgroundSize='cover'
         w={['100%', '1240px']}
         h={['250px', '450px']}
         mx='auto'

@@ -5,6 +5,7 @@ export function Banner() {
   return (
     <Flex
       backgroundImage='./img/Background.png'
+      backgroundSize='cover'
       w='100%'
       h={['180px', '335px']}
       px='0'
@@ -13,7 +14,7 @@ export function Banner() {
         flexDirection='column'
       >
         <Box
-          w={['250px', '426px']}
+          w={['240px', '426px']}
           h={['58px', '90px']}
           mt={['20px', '80px']}
           ml={['25px', '140px']}
@@ -28,7 +29,7 @@ export function Banner() {
           </Text>
         </Box>
         <Box
-          w={['333px', '522px']}
+          w={['320px', '522px']}
           h='57px'
           ml={['25px', '140px']}
         >
