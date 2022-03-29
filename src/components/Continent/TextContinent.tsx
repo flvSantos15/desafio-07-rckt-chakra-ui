@@ -1,6 +1,13 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Text, TextProps } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
-export function TextContinent(){
+interface TextContinentProps {
+  children: ReactNode
+  value: ReactNode
+  color: string
+}
+
+export function TextContinent({ color, children, value }: TextContinentProps){
   return(
     <Flex 
       w='324px' 
@@ -10,19 +17,19 @@ export function TextContinent(){
     >
       <Text 
         textAlign='center' 
-        color='#fff' 
+        color={color}
         fontWeight='bold' 
         fontSize='48px'
       >
-        Europa
+        {children}
       </Text>
       <Text 
         textAlign='center' 
-        color='#fff' 
+        color={color}
         fontWeight='bold' 
         fontSize='24px'
        >
-         O continente mais antigo
+         {value}
       </Text>
     </Flex>
   )
