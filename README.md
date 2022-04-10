@@ -1,3 +1,5 @@
+<div align="center"><img src="chakra-ui.png" alt="World Trip"/></div>
+
 <div id='about'>
   <h1 align="center">
 	  🚧  Challenge 7 Ignite Rocketseat 🚀 In construction...  🚧
