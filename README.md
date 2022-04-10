@@ -1,34 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div id='about'>
+  <h1 align="center">
+	  🚧  Challenge 7 Ignite Rocketseat 🚀 In construction...  🚧
+  </h1>
+  <p align="center">🚀 It's a website describing the continents and its cities</p><br/>
+  <p>
+    This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+  </p>
+</div>
+
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [About](#about)
+   * [How to run](#how-to-run)
+      * [Requirements](#requirements)
+   * [Tecnologies](#technologies)
+<!--te-->
 
 ## Getting Started
 
-First, run the development server:
+<div id='hot-to-run'>
+  <h2>How to run</h2>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+  <div id='requirements' display='flex' flex-direction='column'>
+    <h3>To run this application you need to install:</h3>
+    - [NodeJS](https://nodejs.org/)<br/>
+    - [Git](https://git-scm.com/)<br/>
+    - Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+  </div>
+  
+  <br/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  First, download this repository to your machine:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+  ```bash
+  git clone https://github.com/flvSantos15/desafio-07-rckt-chakra-ui.git
+  ```
+  
+  Go to the folder:
+  
+  ```bash
+  cd folder's name
+  ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  Then, install dependencies by running:
+  ```bash
+  yarn
+  # or
+  npm install
+  ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  And finally, run the development server:
 
-## Learn More
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  ```
 
-To learn more about Next.js, take a look at the following resources:
+  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ </div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<div id='technologies'>
+  <h2>This application is being built using the following technologies:</h2>
+  
+  - [React](https://pt-br.reactjs.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [NextJS](https://nextjs.org/)
+  - [Chakra-ui](https://chakra-ui.com/)
+  - [Swiper](https://swiperjs.com/)
+</div>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<div id='features'>
+  <h2>Features</h2>
 
-## Deploy on Vercel
+- [ ] Not fineshed yet
+</div>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div id='author'>
+  <h2>Autor</h2>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/48564704?v=4" width="100px;" alt="picture of Flavio Santos"/>
+ <br />
+ <sub><b>Flavio Santos</b></sub>
+
+
+Built with ❤️ by Flavio Santos 👋🏽 get in touch!
+
+[![Linkedin Badge](https://img.shields.io/badge/-flvSantos-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/flvSantos15/)](https://www.linkedin.com/in/flvSantos15/) 
+[![Gmail Badge](https://img.shields.io/badge/-flvSantos300@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:flvSantos300@gmail.com)](mailto:flvSantos300@gmail.com)
+</div>
