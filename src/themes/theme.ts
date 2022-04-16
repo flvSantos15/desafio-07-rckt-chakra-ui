@@ -1,6 +1,12 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, ThemeConfig } from '@chakra-ui/react'
+
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false
+}
 
 const theme = extendTheme({
+  config,
   fonts: {
     heading: 'Poppins',
     body: 'Poppins'
@@ -25,61 +31,35 @@ const theme = extendTheme({
     '7xl': '3rem'
   },
   colors: {
-    background: {
-      50: '#292B2F',
-      100: '#1E2023',
-      200: '#202225',
-      300: '#252525',
-      400: '#000000',
-      500: '#4F545B',
-      600: '#40444b'
-    },
-    primary: {
-      50: '#1b8650',
-      100: '#078646',
-      200: '#056133'
-    },
-    secondary: {
-      50: '#ffffff',
-      100: '#fafafa',
-      200: '#F8F9FA',
-      300: '#f9f9f9',
-      400: '#d9d9d9',
-      500: '#c7cdd4',
-      550: '#aaaaaa',
-      600: '#8D8D8D',
-      700: '#696B6D'
-    },
-    success: {
-      50: '#25bb70',
-      100: '#0ABB63',
-      200: '#0f9953',
-      300: '#00944a'
-    },
-    error: {
-      50: '#ff9191',
-      100: '#FF6B6B',
-      200: '#D95050',
-      300: '#eb5757'
-    },
-    warning: {
-      50: '#FFA452',
-      100: '#FF902B',
-      200: '#D9751A'
-    },
-    info: {
-      50: '#75CEFF',
-      70: '#56CCF2',
-      100: '#4FC0FF',
-      200: '#389FD9'
+    default: { 
+      'highlight': '#ffba08',
+      'white': '#ffffff',
+      'black': '#000000',
+      'dark': {
+        'text': '#47585b',
+        'info': '#999999',
+        'background': '#181b23'
+      },
+      'light': {
+        'text': '#f5f8fa',
+        'info': '#dadada',
+        'background': '#f5f8fa'
+      },
+    }
+  },
+  styles: {
+    global: (props: any) => {
+      const prefix = props.colorMode === 'light'
+        ? ['light', 'dark']
+        : ['dark', 'light']
+      return ({
+        body: {
+          bg: `default.${prefix[0]}.background`,
+          color: `deafult.${prefix[1]}.text`
+        }
+      })
     }
   }
-  // breakpoints: {
-  //   sm: '576px',
-  //   md: '768px',
-  //   lg: '992px',
-  //   xl: '1200px'
-  // }
 })
 
 export default theme

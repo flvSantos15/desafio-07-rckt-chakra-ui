@@ -1,61 +1,79 @@
-import { Flex, Text, Image, Box, useMediaQuery } from '@chakra-ui/react'
+import {
+  Stack,
+  Heading,
+  Flex,
+  Text,
+  Image,
+  Box,
+  useBreakpointValue
+} from '@chakra-ui/react'
+import { BannerContainer } from '../BannerContainer'
 
 export function Banner() {
-  const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  })
   return (
-    <Flex
-      backgroundImage='./img/Background.png'
-      backgroundSize='cover'
-      w='100%'
-      h={['180px', '335px']}
-      px='0'
-    >
-      <Flex
-        flexDirection='column'
+    <>
+      <BannerContainer
+        bgImage='./img/Background.png'
+        bgSize='cover'
+        height={['180px', '335px']}
       >
-        <Box
-          w={['240px', '426px']}
-          h={['58px', '90px']}
-          mt={['20px', '80px']}
-          ml={['25px', '140px']}
-          mb={['15px', '25px']}
+        <Stack
+          flexDirection='column'
+          p='8'
+          justifyContent='center'
+          spacing='5'
         >
-          <Text
-            fontWeight='medium'
-            fontSize={['20px', '4xl']}
-            color='#F5F8FA'
+          <Heading
+            size={!!isWideVersion ? 'lg' : 'md'}
+            color='default.light.text'
           >
             5 Continentes,<br /> infinitas possibilidades.
-          </Text>
-        </Box>
-        <Box
-          w={['320px', '522px']}
-          h='57px'
-          ml={['25px', '140px']}
-        >
+          </Heading>
           <Text
             fontWeight='400'
-            fontSize={['14px', '3xl']}
-            color='#F5F8FA'
+            fontSize={['lg', '3xl']}
+            color='default.light.text'
           >
             Chegou a hora de tirar do papel a viagem que você sempre sonhou.
           </Text>
-        </Box>
-      </Flex>
-      {
-        isLargerThan800
-          && (
+          <Flex
+            flexDirection='column'
+          >
             <Box
-              w='417.15px'
-              h='270px'
-              mt='80px'
-              ml='150px'
-              transform={'rotate(3deg)'}
+              w={['240px', '426px']}
+              h={['58px', '90px']}
+              mt={['20px', '80px']}
+              ml={['25px', '140px']}
+              mb={['15px', '25px']}
             >
-              <Image src='./img/Airplane.png' alt='Airplane' />
+              <Text
+                fontWeight='medium'
+                fontSize={['20px', '4xl']}
+                color='#F5F8FA'
+              >
+                5 Continentes,<br /> infinitas possibilidades.
+              </Text>
             </Box>
-          )
-      }
-    </Flex>
+          </Flex>
+          {
+            isWideVersion && (
+              <Box
+                w='417.15px'
+                h='270px'
+                mt='80px'
+                ml='150px'
+                transform={'rotate(3deg)'}
+              >
+                <Image src='./img/Airplane.png' alt='Airplane' />
+              </Box>
+            )
+          }
+        </Stack>
+      </BannerContainer>
+    </>
   )
 }

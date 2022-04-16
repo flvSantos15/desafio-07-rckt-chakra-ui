@@ -1,4 +1,4 @@
-import { Flex, Image, Text } from '@chakra-ui/react'
+import { Flex, Image, Text, useBreakpointValue } from '@chakra-ui/react'
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
@@ -10,10 +10,42 @@ import { Keyboard, Pagination, Navigation } from "swiper"
 import { Next } from './Next'
 import { Prev } from './Prev'
 import { TextContinent } from './TextContinent'
+import { ReactNode } from 'react'
 
-export function Continent() {
+interface ContinentProps {
+  content: ReactNode[]
+}
+
+export function Continent({ content }: ContinentProps) {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  })
   return (
-    <Flex w='100%' mb={['0', '4rem']} flexDir='column'>
+    <Flex 
+      w='100%' 
+      mb={['0', '4rem']} 
+      flexDir='column'
+      sx={{
+        '--swiper-navigation-color': 'colors.default.highlight',
+        '--swiper-pagination-bullet-active': 'colors.default.highlight',
+        '--swiper-pagination-bullet': 'colors.default.dark.text',
+        '--swiper-navigation-size': `${isWideVersion ? '40px' : '32px'}`,
+
+        '.swiper-pagination-bullet': {
+          'background-color': 'var(--swiper-pagination-bullet)'
+        },
+
+        '.swiper-pagination-bullet-active': {
+          'background-color': 'var(--swiper-pagination-bullet-active)'
+        },
+
+        ".swiper-container": {
+          'width': '100%',
+          'height': '100%',
+        },
+      }}
+    >
         {/*
           <Flex
             bg='#FFBA08'
@@ -25,7 +57,34 @@ export function Continent() {
             bg='#999999'
           ></Flex>
         */}
+
       <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        keyboard={{
+          enabled: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Keyboard, Pagination, Navigation]}
+        className="mySwiper"
+        style={{
+          width: '1240px',
+          height: '450px',
+          display: 'flex'
+        }}
+      >
+        {content.map(item => 
+          <>
+            <SwiperSlide>
+              {item}
+            </SwiperSlide>
+          </>
+        )}
+      </Swiper>
+      {/* <Swiper
         slidesPerView={1}
         spaceBetween={30}
         keyboard={{
@@ -235,7 +294,7 @@ export function Continent() {
             </Flex>
           </Flex>
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
     </Flex>
   )
 }

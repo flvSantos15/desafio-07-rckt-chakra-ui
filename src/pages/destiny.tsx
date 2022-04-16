@@ -11,7 +11,6 @@ function Destiny(){
       flexDirection='column' 
       bg='#F5F8FA'
     >
-      <Header />
       <Flex 
         backgroundImage='./img/Banner2.png'
         backgroundSize='cover'
