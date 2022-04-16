@@ -76,7 +76,8 @@ Tabela de conteúdos
 <div id='features'>
   <h2>Features</h2>
 
-- [ ] Not fineshed yet
+- [ x ] Web view
+- [ x ] Mobile view
 </div>
 
 <div id='author'>
