@@ -78,6 +78,9 @@ Tabela de conteúdos
 
 - [ x ] Web view
 - [ x ] Mobile view
+- [ x ] dark and light mode
+- [ x ] consumming api from unsplash
+- [ x ] fake api
 </div>
 
 <div id='author'>
