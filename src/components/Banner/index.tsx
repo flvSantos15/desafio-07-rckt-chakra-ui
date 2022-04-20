@@ -9,6 +9,13 @@ import {
 } from '@chakra-ui/react'
 import { BannerContainer } from '../BannerContainer'
 
+// interface ContinentBannerProps {
+//   bgImage: string;
+//   bgSize: string;
+//   bgPosition: string;
+//   continentName: string;
+// }
+
 export function Banner() {
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -21,58 +28,53 @@ export function Banner() {
         bgSize='cover'
         height={['180px', '335px']}
       >
-        <Stack
+        <Flex
           flexDirection='column'
-          p='8'
           justifyContent='center'
-          spacing='5'
+          w='95%'
         >
-          <Heading
-            size={!!isWideVersion ? 'lg' : 'md'}
-            color='default.light.text'
-          >
-            5 Continentes,<br /> infinitas possibilidades.
-          </Heading>
-          <Text
-            fontWeight='400'
-            fontSize={['lg', '3xl']}
-            color='default.light.text'
-          >
-            Chegou a hora de tirar do papel a viagem que você sempre sonhou.
-          </Text>
           <Flex
             flexDirection='column'
+            w={['240px', '470px']}
+            mt={['0px', '140px']}
+            ml={['25px', '70px']}
           >
             <Box
-              w={['240px', '426px']}
-              h={['58px', '90px']}
-              mt={['20px', '80px']}
-              ml={['25px', '140px']}
-              mb={['15px', '25px']}
+              w='480px'
+              h='108px'
             >
-              <Text
+              <Heading
                 fontWeight='medium'
-                fontSize={['20px', '4xl']}
-                color='#F5F8FA'
+                fontSize={['20px', '6xl']}
+                color='default.light.text'
               >
                 5 Continentes,<br /> infinitas possibilidades.
-              </Text>
+              </Heading>
             </Box>
+            <Text
+              fontWeight='400'
+              fontSize={['lg', '3xl']}
+              color='default.light.text'
+            >
+              Chegou a hora de tirar do papel a viagem que você sempre sonhou.
+            </Text>
           </Flex>
           {
             isWideVersion && (
-              <Box
+              <Flex
                 w='417.15px'
                 h='270px'
-                mt='80px'
-                ml='150px'
+                mt='-140px'
+                mr='10px'
+                alignSelf='end'
                 transform={'rotate(3deg)'}
+
               >
                 <Image src='./img/Airplane.png' alt='Airplane' />
-              </Box>
+              </Flex>
             )
           }
-        </Stack>
+        </Flex>
       </BannerContainer>
     </>
   )

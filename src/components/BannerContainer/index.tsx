@@ -13,7 +13,7 @@ interface BannerContainerProps {
   bgImage: string
   bgSize: string
   bgPosition?: string
-  height: string[]
+  height: string[] | string
   children: ReactNode
 }
 

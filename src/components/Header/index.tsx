@@ -22,7 +22,7 @@ export function Header() {
         <Image 
           src='./img/Logo.png' 
           alt='Logo'
-          objectFit='cover'
+          // objectFit='cover'
           w={['98px', '184.06px']}
           h={['30px', '45.92px']}
         />

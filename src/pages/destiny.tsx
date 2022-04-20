@@ -9,7 +9,7 @@ function Destiny(){
       w='100%' 
       h='100%' 
       flexDirection='column' 
-      bg='#F5F8FA'
+      bg='default.light.background'
     >
       <Flex 
         backgroundImage='./img/Banner2.png'
@@ -24,7 +24,7 @@ function Destiny(){
           ml={['120px', '140px']}
           mt={['56px', '360px']}
         >
-          <Text fontWeight='600' fontSize={['28px', '48px']} color='#fff'>
+          <Text fontWeight='600' fontSize={['28px', '48px']} color='default.light.text'>
             Europa
           </Text>
         </Flex>
