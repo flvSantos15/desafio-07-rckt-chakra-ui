@@ -27,7 +27,7 @@ export function ContinentText({
       w='100%'
     >
       <NextLink href={href} passHref>
-        <Link>
+        <Link _hover={{textDecoration: 'none'}}>
         <Flex
           as='a'
           flexDirection='column'
@@ -40,13 +40,13 @@ export function ContinentText({
           <Text
             fontSize={['4xl', '7xl']}
             fontWeight='bold'
-            textShadow='3px 3px #777'
+            textShadow='2px 2px #2b2b2b'
           >
             {title}
           </Text>
           <Text
             fontSize={['md', '4xl']}
-            textShadow='3px 3px #777'
+            textShadow='2px 2px 1px #2b2b2b'
           >
             {description}
           </Text>

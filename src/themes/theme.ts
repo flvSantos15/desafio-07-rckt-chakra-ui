@@ -35,6 +35,7 @@ const theme = extendTheme({
       'highlight': '#ffba08',
       'white': '#ffffff',
       'black': '#000000',
+      'strong': '#000011',
       'dark': {
         'text': '#47585b',
         'info': '#999999',

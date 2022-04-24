@@ -1,7 +1,8 @@
-import { Flex, Text, Image, useMediaQuery, useBreakpointValue } from '@chakra-ui/react'
+import { Flex, Text, Image, useBreakpointValue, useColorMode } from '@chakra-ui/react'
+// import { RiCheckboxBlankCircleFill } from 'react-icons/ri'
 
 export function Beach() {
-  const [isLargerThan800] = useMediaQuery('(min-width:500px)')
+  const { colorMode } = useColorMode()
   const isWideVersion = useBreakpointValue({
     base: false,
     mg: true,
@@ -37,6 +38,7 @@ export function Beach() {
         textAlign={['right', 'center']}
         fontWeight='600'
         fontSize={['18px', '20px']}
+        color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
       >
         praia
       </Text>

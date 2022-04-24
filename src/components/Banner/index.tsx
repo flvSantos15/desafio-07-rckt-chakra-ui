@@ -1,5 +1,4 @@
 import {
-  Stack,
   Heading,
   Flex,
   Text,
@@ -7,14 +6,6 @@ import {
   Box,
   useBreakpointValue
 } from '@chakra-ui/react'
-import { BannerContainer } from '../BannerContainer'
-
-// interface ContinentBannerProps {
-//   bgImage: string;
-//   bgSize: string;
-//   bgPosition: string;
-//   continentName: string;
-// }
 
 export function Banner() {
   const isWideVersion = useBreakpointValue({
@@ -23,10 +14,15 @@ export function Banner() {
   })
   return (
     <>
-      <BannerContainer
+      <Flex
+        flexDir='row'
+        w='100%'
+        h={['180px', '335px']}
         bgImage='./img/Background.png'
+        bgRepeat='no-repeat'
         bgSize='cover'
-        height={['180px', '335px']}
+        justifyContent='space-evenly'
+        mb={['0.875rem', '1.75rem']}
       >
         <Flex
           flexDirection='column'
@@ -75,7 +71,7 @@ export function Banner() {
             )
           }
         </Flex>
-      </BannerContainer>
+      </Flex>
     </>
   )
 }

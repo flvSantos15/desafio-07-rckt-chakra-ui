@@ -1,7 +1,7 @@
-import {Flex, Text, Image, useMediaQuery, useBreakpointValue} from '@chakra-ui/react'
+import {Flex, Text, Image, useBreakpointValue, useColorMode} from '@chakra-ui/react'
 
 export function NightLife() {
-  const [isLargerThan800] = useMediaQuery('(min-width:800px)')
+  const { colorMode } = useColorMode()
   const isWideVersion = useBreakpointValue({
     base: false,
     mg: true,
@@ -30,6 +30,7 @@ export function NightLife() {
         textAlign={['right', 'center']}
         fontWeight='600' 
         fontSize={['18px', '20px']}
+        color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
       >
         vida noturna
       </Text>

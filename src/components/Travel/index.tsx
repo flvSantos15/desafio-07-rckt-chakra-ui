@@ -1,4 +1,5 @@
-import { Flex, useMediaQuery, SimpleGrid } from '@chakra-ui/react'
+import { Flex, SimpleGrid } from '@chakra-ui/react'
+
 import { Beach } from './Beach'
 import { Classic } from './Classic'
 import { Modern } from './Modern'
@@ -6,7 +7,6 @@ import { More } from './More'
 import { NightLife } from './NightLife'
 
 export function Travel (){
-  const [isLargerThan800] = useMediaQuery('(min-width:800px)')
   return(
     <Flex justifyContent='center' alignItems='center' px='auto'>
       <SimpleGrid
