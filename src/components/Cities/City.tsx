@@ -1,64 +1,25 @@
-import {Flex, Image, Text, ImageProps} from '@chakra-ui/react'
-import { ReactNode } from 'react'
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react"
 
-interface CityProps extends ImageProps{
-  src: string
-  alt: string
-  city: string
-  country: string
-  lang: string
-}
+import { City } from '../../shared/interfaces/models/Continent'
 
-export function City({
-  alt,
-  city,
-  country,
-  lang,
-  src
-}: CityProps){
-  return(
-    <Flex 
-      bg='#fff' 
-      w='256px'
-      h='279px'
-      mb='2rem'
-      flexDirection='column'
-      borderRadius='4px'
-    >
-      <Image
-        src={src}
-        alt={alt}
-        w='256px'
-        h='173px'
-        borderRadius='4px 4px 0px 0px'
-      />
-      <Flex 
-        border='1px solid #FFBA08' 
-        justifyContent='space-between' 
-        alignItems='center'
-        h='106px'
-        px='1rem'
-        borderRadius='0px 0px 4px 4px'
-      >
-        <Flex
-          p='0.5m'
-          flexDirection='column'
-        >
-          <Text color='#47585B' fontWeight='600' fontSize='20px'>
-            {city}
-          </Text>
-          <Text color='#999999' fontWeight='500' fontSize='16px'>
-            {country}
-          </Text>
-        </Flex>
-        <Flex
-          backgroundImage={lang}
-          w='30px'
-          h='30px'
-          borderRadius='50%'
-        >
-        </Flex>
+export function City({name, country, flag, image}: City) {
+ return (
+  <Box borderRadius="4px" overflow="hidden">
+    <Image src={image} alt={`${name}, ${country}`} h="170px" w="100%"/>
+    <Flex p="6" align="center" justify="space-between" bg="white" border="1px" borderColor="yellow.300" borderTop="0">
+      <Flex direction="column">
+        <Heading fontSize="xl" fontWeight="500">{name}</Heading>
+        <Text mt="3" fontSize="md" color="gray.500" fontWeight="500">{country}</Text>
       </Flex>
+      <Image 
+        src={flag} 
+        w="30px" 
+        h="30px" 
+        borderRadius="50%" 
+        objectFit="cover"
+        alt='bamdeira de uma cidade'
+      />
     </Flex>
-  )
+  </Box>
+ )
 }

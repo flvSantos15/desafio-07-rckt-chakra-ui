@@ -1,4 +1,4 @@
-import { Flex, Image } from '@chakra-ui/react'
+import { Flex, Grid, Image } from '@chakra-ui/react'
 import { ToggleColorMode } from '../ToggleColorMode'
 import { BackPageButton } from '../BackPageButton'
 
@@ -8,26 +8,30 @@ export function Header() {
       as='header'
       w='100%'
       h={['50px', '100px']}
-      justifyContent='center' 
-      alignItems='center'
+      mx='auto'
+      px='1rem'
+      justify='center'
+      align='center'
     >
-      <Flex
+      <Grid
         h='100%'
-        maxW='1300px'
-        w='90%'
-        align='center'
-        justifyContent='space-between'
+        mx='auto'
+        w='100%'
+        maxW='1160px'
+        alignItems='center'
+        templateColumns='repeat(3, 1fr)'
+        justifyContent='center'
       >
         <BackPageButton />
         <Image 
-          src='./img/Logo.png' 
-          alt='Logo'
-          // objectFit='cover'
-          w={['98px', '184.06px']}
-          h={['30px', '45.92px']}
+          w={['81px', '184px']}
+          src='./img/Logo.svg' 
+          alt='Um avião voando sobre  o nome da logo World Trip'
+          justifySelf='center'
+          gridColumn='2'
         />
         <ToggleColorMode />
-      </Flex>
+      </Grid>
     </Flex>
   )
 }

@@ -5,7 +5,7 @@ const config: ThemeConfig = {
   useSystemColorMode: false
 }
 
-const theme = extendTheme({
+export const theme = extendTheme({
   config,
   fonts: {
     heading: 'Poppins',
@@ -46,6 +46,17 @@ const theme = extendTheme({
         'info': '#dadada',
         'background': '#f5f8fa'
       },
+    },
+    gray: {
+      "700": "#47585B",
+      "500": "#999999",
+      "400": "rgba(153, 153, 153, 0.5)",
+      "300": "#DADADA",
+      "100": "#F5F8FA"
+    },
+    yellow: {
+      "400": "#FFBA08",
+      "300": "rgba(255, 186, 8,0.5)"
     }
   },
   styles: {
@@ -62,5 +73,3 @@ const theme = extendTheme({
     }
   }
 })
-
-export default theme
