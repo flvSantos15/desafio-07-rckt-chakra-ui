@@ -1,5 +1,4 @@
 import { Flex, Text, Image, useBreakpointValue, useColorMode } from '@chakra-ui/react'
-// import { RiCheckboxBlankCircleFill } from 'react-icons/ri'
 
 export function Beach() {
   const { colorMode } = useColorMode()
@@ -12,8 +11,8 @@ export function Beach() {
 
   return (
     <Flex
-      w={['75px', '158px']}
-      h={['21px', '145px']}
+      w={['4.688rem', '9.875rem']}
+      h={['1.313rem', '9.063rem']}
       flexDirection={['row', 'column']}
       justifyContent='center'
       alignItems='center'
@@ -21,23 +20,23 @@ export function Beach() {
     >
       {isWideVersion &&
         (
-          <Flex w='85px' h='85px' justifyContent='center' mx='auto' mb='1rem'>
+          <Flex w='5.313rem' h='5.313' justifyContent='center' mx='auto' mb='1rem'>
             <Image src='./img/surf1.png' alt='beach' />
           </Flex>
         )}
       {!isWideVersion && (
         <Flex
           bg='#FFBA08'
-          w='8px'
-          h='8px'
+          w='0.5rem'
+          h='0.5rem'
           borderRadius='50%'
         ></Flex>
       )}
       <Text
-        w={['52px', '66px']}
+        w={['3.25rem', '4.125rem']}
         textAlign={['right', 'center']}
         fontWeight='600'
-        fontSize={['18px', '20px']}
+        fontSize={['1.125rem', '1.25rem']}
         color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
       >
         praia

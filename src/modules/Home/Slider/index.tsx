@@ -8,7 +8,7 @@ export function Slider() {
   const { allContinent } = useContinent()
   
   return (
-    <Flex w={['375px', "100%"]} h={["250px", "450px"]} maxW="1240px" mx="auto" mb={["5", "10"]}>
+    <Flex w={['100%', "100%"]} h={["250px", "450px"]} maxW="1240px" mx="auto" mb={["5", "10"]}>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -39,7 +39,7 @@ export function Slider() {
               <Flex
                 mx='auto'
                 pt={['2.5rem', '165px']}
-                w={['375px', "100%"]}
+                w={['100%', "100%"]}
                 h={['250px', "100%"]}
                 align="center"
                 justify="center"

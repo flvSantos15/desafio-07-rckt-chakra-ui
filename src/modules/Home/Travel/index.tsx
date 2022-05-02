@@ -14,7 +14,7 @@ export function Travel (){
         spacing={['2.5rem', '5.5rem']}
         my={['2rem', '8rem']}
         w='85%'
-        h={['174px', '145px']}
+        h={['10.875rem', '9.063rem']}
         pt={['0.5rem', '0']}
       >
         <NightLife />

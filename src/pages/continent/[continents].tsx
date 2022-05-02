@@ -1,19 +1,16 @@
 import { Flex } from '@chakra-ui/react';
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import { GetServerSideProps } from 'next';
 
-
-import { ContinentBanner } from '../../modules/Continent/ContinentBanner'
-import { Loading } from '../../components/Loading'
-
-import { ContinentResponse } from '../../shared/interfaces/models/Continent'
-
+import { ContinentBanner } from 'modules/Continent/ContinentBanner'
 import { ContentDestiny } from 'modules/Continent/ContentDestiny';
 import { Cities } from 'modules/Continent/Cities';
-import { GetServerSideProps } from 'next';
+import { Loading } from 'modules/Continent/Loading';
+
+import { ContinentResponse } from 'shared/interfaces/models/Continent'
 import { api } from 'shared/services/api';
 import { useContinent } from 'context/ContinentContext';
-import { UnSplashProvider } from 'context/UnSplashContext';
 
 export default function Continent(posts: ContinentResponse) {
   const { getContinent } = useContinent()
@@ -26,10 +23,15 @@ export default function Continent(posts: ContinentResponse) {
     return <Loading />
   } else {
     return (
-      <UnSplashProvider>
         <Flex direction='column' px='0'>
           <Head>
             <title>WorldTrip - {posts.title}</title>
+            <meta property="og:image" content="/ogimage.png" />
+            <meta property="og:image:secure_url" content="/ogimage.png" />
+            <meta name="twitter:image" content="/ogimage.png" />
+            <meta name="twitter:image:src" content="/ogimage.png" />
+            <meta property="og:title" content="WorldTrip" />
+            <meta name="twitter:title" content="WorldTrip" />
           </Head>
     
           <ContinentBanner image={posts.image} title={posts.title} />
@@ -44,7 +46,6 @@ export default function Continent(posts: ContinentResponse) {
             <Cities />
           </Flex>
         </Flex >
-      </UnSplashProvider>
     )
   }
 }

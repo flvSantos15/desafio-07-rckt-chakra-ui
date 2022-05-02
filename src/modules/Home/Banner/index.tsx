@@ -11,7 +11,7 @@ export function Banner() {
     <>
       <Flex
         w='100%'
-        h={['163px', '250px', '250px', '335px']}
+        h={['10.188rem', '15.625rem', '15.625rem', '20.938rem']}
         bgImage='./img/Background.png'
         bgRepeat='no-repeat'
         bgSize='cover'
@@ -36,13 +36,12 @@ export function Banner() {
               fontSize={['lg', 'xl']}
               color='default.light.text'
               mt='5'
-
             >
               Chegou a hora de tirar do papel a viagem que você sempre sonhou.
             </Text>
           </Box>
             <Image
-              w={['300px', '300px', '300px', '430px']}
+              w={['18.75rem', '18.75rem', '18.75rem', '26.875rem']}
               display={['none', 'none', 'block']}
               src='./img/Airplane.png' 
               alt='Avião voando com algumas nuvens ao redor'

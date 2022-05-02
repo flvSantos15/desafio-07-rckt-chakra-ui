@@ -17,8 +17,9 @@ export function Cities() {
       flexDirection='column'
     >
       <Text 
-        fontWeight='500' 
-        fontSize='36px' mb='2rem'
+        fontWeight='500'
+        fontSize={['3xl', '2.25rem']}
+        mb='2rem'
         color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
       >
         Cidades +100
@@ -27,6 +28,7 @@ export function Cities() {
         columns={[1, 4]} 
         spacing='4' 
         mb={['2rem', '4rem']}
+        mx={{base: 'auto', xl: '0'}}
       >
         {cities_list.map(item => (
           <City

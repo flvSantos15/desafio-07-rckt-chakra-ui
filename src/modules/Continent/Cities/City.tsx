@@ -1,4 +1,4 @@
-import {Flex, Image, Text, ImageProps} from '@chakra-ui/react'
+import {Flex, Image, Text, ImageProps, Avatar, useColorMode} from '@chakra-ui/react'
 
 interface CityProps extends ImageProps{
   src: string
@@ -15,9 +15,10 @@ export function City({
   lang,
   src
 }: CityProps){
+  const { colorMode } = useColorMode()
   return(
     <Flex 
-      bg='#fff' 
+      bg={colorMode === 'light' ? 'default.light.background' : '#101218'}
       w='256px'
       h='279px'
       mb='2rem'
@@ -30,9 +31,12 @@ export function City({
         w='256px'
         h='173px'
         borderRadius='4px 4px 0px 0px'
+        cursor='pointer'
       />
       <Flex 
-        border='1px solid #FFBA08' 
+        borderRight='0.5px solid #FFBA08' 
+        borderLeft='0.5px solid #FFBA08' 
+        borderBottom='0.5px solid #FFBA08' 
         justifyContent='space-between' 
         alignItems='center'
         h='106px'
@@ -43,19 +47,32 @@ export function City({
           p='0.5m'
           flexDirection='column'
         >
-          <Text color='#47585B' fontWeight='600' fontSize='20px'>
+          <Text 
+            color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+            fontWeight='600' 
+            fontSize='20px'
+          >
             {city}
           </Text>
-          <Text color='#999999' fontWeight='500' fontSize='16px'>
+          <Text 
+            color={colorMode === 'light' ? 'default.dark.info' : 'default.light.info'}
+            fontWeight='500' 
+            fontSize='16px'
+          >
             {country}
           </Text>
         </Flex>
         <Flex
-          backgroundImage={lang}
-          w='30px'
-          h='30px'
+          w='32px'
+          h='32px'
           borderRadius='50%'
         >
+          <Avatar
+            src={lang}
+            w='30px'
+            h='30px'
+            borderRadius='50%'
+          />
         </Flex>
       </Flex>
     </Flex>
