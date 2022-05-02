@@ -1,6 +1,6 @@
-import { Flex, Heading, Icon, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text, Tooltip } from "@chakra-ui/react";
+import { Flex, Heading, Icon, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Text } from "@chakra-ui/react";
 import { RiInformationLine } from "react-icons/ri";
-import { ContinentProps } from "../../pages/continent/[slug]";
+import { ContinentProps } from "shared/interfaces/models/Continent";
 
 export function Infos({continent}: ContinentProps) {
   return (
@@ -33,13 +33,22 @@ export function Infos({continent}: ContinentProps) {
           <Popover>
             <PopoverTrigger>
               <span>
-                <Icon cursor="pointer" as={RiInformationLine} ml="1" color="gray.400" w={["10px","16px"]} h={["10px","16px"]}/>
+                <Icon 
+                  cursor="pointer" 
+                  as={RiInformationLine} 
+                  ml="1" 
+                  color="gray.400" 
+                  w={["10px","16px"]} 
+                  h={["10px","16px"]}
+                />
               </span>
             </PopoverTrigger>
             <PopoverContent bg="gray.700" color="yellow.400">
               <PopoverArrow bg="gray.700"/>
               <PopoverCloseButton />
-              <PopoverBody fontWeight="400" fontSize="lg">{continent.cities_list}</PopoverBody>
+              <PopoverBody fontWeight="400" fontSize="lg">
+                {continent.cities_list}
+              </PopoverBody>
             </PopoverContent>
           </Popover>
 

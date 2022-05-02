@@ -2,23 +2,27 @@ import { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '../themes/theme'
 
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
+import 'swiper/css/bundle'
 
-import '../styles/slider.scss';
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import "swiper/css";
+
+import '../themes/slider.scss';
 
 import { Header } from '../components/Header'
 import { ContinentProvider } from '../context/ContinentContext'
+import { UnSplashProvider } from '../context/UnSplashContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ContinentProvider>
-      <ChakraProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
-      </ChakraProvider>
+      <UnSplashProvider>
+        <ChakraProvider theme={theme}>
+          <Header />
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </UnSplashProvider>
     </ContinentProvider>
   )
 }

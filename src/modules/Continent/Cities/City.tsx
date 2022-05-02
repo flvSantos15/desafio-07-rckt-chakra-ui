@@ -1,5 +1,4 @@
 import {Flex, Image, Text, ImageProps} from '@chakra-ui/react'
-import { ReactNode } from 'react'
 
 interface CityProps extends ImageProps{
   src: string

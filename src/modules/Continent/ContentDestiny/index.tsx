@@ -1,37 +1,63 @@
-import { Flex, Text, Tooltip } from '@chakra-ui/react'
-import { InfoOutlineIcon } from '@chakra-ui/icons'
+import { 
+  Flex, 
+  Popover, 
+  Text, 
+  PopoverTrigger, 
+  Icon, 
+  PopoverArrow, 
+  PopoverBody, 
+  PopoverCloseButton, 
+  PopoverContent,
+  useColorMode
+} from '@chakra-ui/react'
+import { RiInformationLine } from "react-icons/ri";
+import { ContinentResponse } from "../../../shared/interfaces/models/Continent";
 
-export function ContentDestiny() {
+export function ContentDestiny({ bio, cities, languages, countries }: ContinentResponse) {
+  const { colorMode } = useColorMode()
+
   return (
     <Flex
       w={['100%', '1160px']}
       mx={['auto']}
       mb={['2rem', '4rem']}
-      alignItems='center'
+      p='0.5rem'
+      alignItems='flex-start'
       justifyContent={['center', 'space-between']}
       flexDirection={['column', 'row']}
     >
-      <Flex w={['334px', '600px']} h={['146px', '211px']}>
-        <Text color='#47585B' fontWeight='400' fontSize={['14px', '24px']} textAlign='justify'>
-          A Europa é, por convenção, um dos seis continentes
-          do mundo. Compreendendo a península ocidental da
-          Eurásia, a Europa geralmente divide-se da Ásia a
-          leste pela divisória de águas dos montes Urais, o
-          rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a
-          sudeste.
+      <Flex w={['100%', '600px']}>
+        <Text 
+          color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+          fontWeight='400' 
+          fontSize={['14px', '24px']} 
+          textAlign='justify'
+        >
+          {bio}
         </Text>
       </Flex>
-      <Flex w={['343px', '490px']} h={['59px', '99px']} mt='0.5rem' justifyContent='center'>
+      <Flex 
+        w={['100%', '490px']} 
+        h={['59px', '99px']} 
+        mt={['1rem', '0']}
+        px='0'
+        justifyContent='center' 
+        alignItems='center'
+      >
         <Flex
           p={['0.5rem', '1rem']}
           flexDirection='column'
           justifyContent='center'
-          alignItems='center'
+          alignItems={['start', 'center']}
         >
           <Text fontWeight='600' fontSize={['24px', '48px']} color='#FFBA08'>
-            50
+            {countries}
           </Text>
-          <Text fontWeight='600' fontSize={['18px', '24px']}>
+          <Text 
+            fontWeight='600' 
+            fontSize={['18px', '24px']}
+            color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+          >
             países
           </Text>
         </Flex>
@@ -39,31 +65,67 @@ export function ContentDestiny() {
           p={['0.5rem', '1rem']}
           flexDirection='column'
           justifyContent='center'
-          alignItems='center'
+          alignItems={['start', 'center']}
         >
           <Text fontWeight='600' fontSize={['24px', '48px']} color='#FFBA08'>
-            60
+            {languages}
           </Text>
-          <Text fontWeight='600' fontSize={['18px', '24px']}>
+          <Text 
+            fontWeight='600' 
+            fontSize={['18px', '24px']}
+            color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+          >
             línguas
           </Text>
         </Flex>
         <Flex
-          p={['0.5rem', '1rem']}
+          p={['0', '1rem']}
           flexDirection='column'
           justifyContent='center'
-          alignItems='center'
+          alignItems={['start', 'center']}
         >
           <Text fontWeight='600' fontSize={['24px', '48px']} color='#FFBA08'>
-            27
+            {cities}
           </Text>
-          <Flex alignItems='center'>
-            <Text fontWeight='600' fontSize={['18px', '24px']} mr='0.2rem'>
+          <Flex alignItems='center' w='100%'>
+            <Text 
+              fontWeight='600' 
+              fontSize={['18px', '24px']} 
+              mr='0.2rem'
+              color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+            >
               cidades +100
+
+              <Popover>
+                <PopoverTrigger>
+                  <span>
+                    <Icon 
+                      cursor="pointer" 
+                      as={RiInformationLine} 
+                      ml="1" 
+                      color="gray.400" 
+                      w={["10px","16px"]} 
+                      h={["10px","16px"]}
+                    />
+                  </span>
+                </PopoverTrigger>
+                <PopoverContent 
+                  bg="gray.700" 
+                  color="yellow.400" 
+                  _focus={{
+                    outline: 'none'
+                  }}
+                  w='8rem'
+                >
+                  <PopoverArrow bg="gray.700"/>
+                  <PopoverCloseButton />
+                  <PopoverBody fontWeight="400" fontSize="lg">
+                    {cities} cities
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
             </Text>
-            <Tooltip hasArrow label="100 cidades" aria-label='A tooltip'>
-              <InfoOutlineIcon />
-            </Tooltip>
+            
           </Flex>
         </Flex>
       </Flex>

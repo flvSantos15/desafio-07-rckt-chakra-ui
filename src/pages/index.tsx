@@ -1,21 +1,11 @@
-import { GetStaticProps } from 'next'
 import { Flex, Box, Divider, useColorMode, Heading } from '@chakra-ui/react'
-import Prismic from '@prismicio/client'
 import Head from 'next/head'
 
 import { Banner } from '../modules/Home/Banner'
 import { Travel } from '../modules/Home/Travel'
-import { Slider } from '../components/Slider'
+import { Slider } from '../modules/Home/Slider'
 
-import { Continent } from '../shared/interfaces/models/Continent'
-
-// parei no 1:16:35
-
-// import { api } from '../shared/services/api'
-import { getPrismicClient } from '../shared/services/prismic'
-// import { useContinent } from '../context/ContinentContext'
-
-function Home({ continents }: Continent) {
+function Home() {
   const { colorMode } = useColorMode()
   return (
     <Flex direction='column'>
@@ -34,7 +24,7 @@ function Home({ continents }: Continent) {
 
       <Travel />
 
-      <Box w='25%' h='10px' justifyContent='center' mb='4rem' mx='auto' >
+      <Box w='5.625rem' h='10px' justifyContent='center' mb='4rem' mx='auto' >
         <Divider
           w='100%'
           h='0.05rem'
@@ -46,39 +36,15 @@ function Home({ continents }: Continent) {
         textAlign="center"
         fontWeight="500"
         mb={["5","14"]}
-        fontSize={["lg",
-        "3xl",
-        "4xl"]}
+        fontSize={["2xl", "3xl", "4xl"]}
+        color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
       >
         Vamos nessa?<br/>Então escolha seu continente
       </Heading>
     
-      <Slider continents={continents} />
+      <Slider />
     </Flex>
   )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const prismic = getPrismicClient();
-
-  const response = await prismic.query(
-    [Prismic.Predicates.at('document.type', 'continent')]
-  )
-
-  const continents = response.results.map((continent: { uid: any; data: { title: any; summary: any; slider_image: { url: any } } }) => {
-    return {
-      slug: continent.uid,
-      title: continent.data.title,
-      summary: continent.data.summary,
-      image: continent.data.slider_image.url
-    }
-  })
-
-  return {
-    props: {
-      continents
-    }
-  }
 }
 
 export default Home

@@ -1,7 +1,13 @@
-import { Flex, Text, SimpleGrid } from '@chakra-ui/react'
+import { Flex, Text, SimpleGrid, useColorMode } from '@chakra-ui/react'
+import { useContinent } from 'context/ContinentContext'
 import { City } from './City'
 
 export function Cities() {
+  const { colorMode } = useColorMode()
+  const { allCities, continent } = useContinent()
+
+  const cities_list = allCities.filter(item => item.continent === continent)
+
   return (
     <Flex
       w={['300px', '1160px']}
@@ -10,7 +16,11 @@ export function Cities() {
       mb={['0', '4rem']}
       flexDirection='column'
     >
-      <Text fontWeight='500' fontSize='36px' mb='2rem'>
+      <Text 
+        fontWeight='500' 
+        fontSize='36px' mb='2rem'
+        color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+      >
         Cidades +100
       </Text>
       <SimpleGrid 
@@ -18,41 +28,16 @@ export function Cities() {
         spacing='4' 
         mb={['2rem', '4rem']}
       >
-        <City
-          alt={'londres'}
-          city={'Londres'}
-          country={'Reino Unido'}
-          lang={'./img/EllipseEur.png'}
-          src={'./img/Londres.png'}
-        />
-        <City
-          alt={'paris'}
-          city={'Paris'}
-          country={'França'}
-          lang={'./img/EllipseFran.png'}
-          src={'./img/Paris.png'}
-        />
-        <City
-          alt={'roma'}
-          city={'Roma'}
-          country={'Itália'}
-          lang={'./img/EllipseIta.png'}
-          src={'./img/Roma.png'}
-        />
-        <City
-          alt={'praga'}
-          city={'Praga'}
-          country={'República Tcheca'}
-          lang={'./img/EllipsePra.png'}
-          src={'./img/Praga.png'}
-        />
-        <City
-          alt={'amsterda'}
-          city={'Amsterdã'}
-          country={'Holanda'}
-          lang={'./img/EllipseAms.png'}
-          src={'./img/Amsterdã.png'}
-        />
+        {cities_list.map(item => (
+          <City
+            key={item.id}
+            alt={item.id as string}
+            city={item.name}
+            country={item.country}
+            lang={item.flag}
+            src={item.image}
+          />
+        ))}
       </SimpleGrid>
     </Flex>
   )

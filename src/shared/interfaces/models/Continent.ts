@@ -8,29 +8,29 @@ export interface Continent {
 }
 
 export interface ContinentResponse {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  betterImagePosition: string;
+  id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  betterImagePosition?: string;
   bio?: string;
   countries?: number;
   cities?: number;
   languages?: number;
 }
 
-export interface City {
-  id?: number;
+export interface CityResponse {
+  id?: string;
   name: string;
   country: string;
-  flag?: string;
-  continent?: string;
-  image?: string;
+  flag: string;
+  continent: string;
+  image: string;
 }
 
 export interface ContinentsProps {
   continent: ContinentResponse;
-  cities: City[];
+  cities: CityResponse[];
 }
 
 export interface ContinentProps {

@@ -1,4 +1,4 @@
-import Router from 'next/router'
+// import Router from 'next/router'
 import {
   createContext,
   ReactNode,
@@ -6,13 +6,13 @@ import {
   useEffect,
   useState
 } from 'react'
-import { getContinentResponse } from '../shared/services/ContinentService'
-import { ContinentResponse } from '../shared/interfaces/models/Continent'
-
-
+import { getAllContinentsResponse, getAllCitiesResponse } from '../shared/services/ContinentService'
+import { ContinentResponse, CityResponse } from '../shared/interfaces/models/Continent'
 interface ContinentContextData {
-  allContinent: ContinentResponse[] | undefined
-  getContinent: (continent: ContinentResponse[]) => Promise<void>
+  continent: string
+  allContinent: ContinentResponse[]
+  allCities: CityResponse[]
+  getContinent: (slug: string) => Promise<void>
 }
 
 interface ContinentProviderProps {
@@ -24,21 +24,33 @@ export const ContinentContext = createContext({} as ContinentContextData)
 
 export function ContinentProvider({ children }: ContinentProviderProps) {
   const [allContinent, setAllContinent] = useState<ContinentResponse[]>([])
+  const [allCities, setAllCities] = useState<CityResponse[]>([])
+  const [continent, setContinent] = useState('')
 
-  // useEffect(() => {
-  //   getContinentResponse(id).then(res => {
-  //     const response = res.data
-  //     console.log(response)
-  //   })
-  // }, [])
+  useEffect(() => {
+    getAllContinentsResponse().then((res) => {
+      const response = res.data
+      setAllContinent(response)
+    })
 
-  async function getContinent(continent: ContinentResponse[]) {
-    setAllContinent(continent)
+    getAllCitiesResponse().then((res) => {
+      const response = res.data
+      setAllCities(response)
+    })
+  }, [])
+
+  async function getContinent(slug: string){
+    setContinent(slug)
   }
 
   return (
     <>
-      <ContinentContext.Provider value={{ allContinent, getContinent }}>
+      <ContinentContext.Provider value={{
+        allContinent,
+        allCities, 
+        continent, 
+        getContinent,
+      }}>
         {children}
       </ContinentContext.Provider>
     </>

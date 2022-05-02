@@ -1,102 +1,60 @@
 import { Flex } from '@chakra-ui/react';
-import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { RichText } from 'prismic-dom'
 
-import { Cities } from '../../components/Cities'
-import { Content } from '../../components/Content'
-import { ContinentBanner } from '../../components/ContinentBanner'
-import { Header } from '../../components/Header'
+
+import { ContinentBanner } from '../../modules/Continent/ContinentBanner'
 import { Loading } from '../../components/Loading'
-import Prismic from '@prismicio/client'
 
-import { getPrismicClient } from '../../shared/services/prismic'
-import { ContinentProps } from '../../shared/interfaces/models/Continent'
+import { ContinentResponse } from '../../shared/interfaces/models/Continent'
 
-// import { api } from '../../shared/services/api';
-// import { unsplashAPi } from '../../shared/services/unSplashAPi';
+import { ContentDestiny } from 'modules/Continent/ContentDestiny';
+import { Cities } from 'modules/Continent/Cities';
+import { GetServerSideProps } from 'next';
+import { api } from 'shared/services/api';
+import { useContinent } from 'context/ContinentContext';
+import { UnSplashProvider } from 'context/UnSplashContext';
 
-
-export default function Continent({ continent }: ContinentProps) {
+export default function Continent(posts: ContinentResponse) {
+  const { getContinent } = useContinent()
+  getContinent(posts.id as string)
   const router = useRouter()
   if (router.isFallback) {
     return <Loading />
   }
-  return (
-    <Flex direction='column'>
-      <Head>
-        <title>WorldTrip - {continent.title}</title>
-
-        <meta property="og:title" content={`WorldTrip ${continent.title}`} />
-        <meta property="og:description" content={continent.description} />
-        <meta name="twitter:title" content={`WorldTrip ${continent.title}`} />
-
-        <meta name="twitter:image" content={continent.banner_image} />
-        <meta name="twitter:image:src" content={continent.banner_image} />
-        <meta property="og:image" content={continent.banner_image} />
-        <meta property="og:image:secure_url" content={continent.banner_image} />
-      </Head>
-      
-      <Header />
-
-      <ContinentBanner continent={continent} />
-      <Flex direction='column' maxW='1160px'>
-        <Content continent={continent} />
-        <Cities continent={continent} />
-      </Flex>
-    </Flex >
-  )
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const prismic = getPrismicClient()
-  const continents = await prismic.query([
-    Prismic.Predicates.at('document.type', 'continent')
-  ])
-
-  const paths = continents.results.map((continent: { uid: any; }) => {
-    return {
-      params: {
-        slug: continent.uid,
-      }
-    }
-  })
-  return {
-    paths,
-    fallback: true,
+  if (!posts || posts === undefined) {
+    return <Loading />
+  } else {
+    return (
+      <UnSplashProvider>
+        <Flex direction='column' px='0'>
+          <Head>
+            <title>WorldTrip - {posts.title}</title>
+          </Head>
+    
+          <ContinentBanner image={posts.image} title={posts.title} />
+          <Flex direction='column' maxW='1160px' mx='auto' mb='10' px='1rem'>
+            <ContentDestiny
+              id={posts.id}
+              cities={posts.cities} 
+              countries={posts.countries} 
+              languages={posts.languages}
+              bio={posts.bio}
+            />
+            <Cities />
+          </Flex>
+        </Flex >
+      </UnSplashProvider>
+    )
   }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const prismic = getPrismicClient()
-  const slug = context.params
-  const response = await prismic.getByUID('continent', String(slug), {})
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const slug = context.query
+  const { continents } = slug
 
-  const continent = {
-    slug: response.uid,
-    title: response.data.title,
-    description: RichText.asText(response.data.description),
-    banner_image: response.data.banner_image.url,
-    countries: response.data.countries,
-    languages: response.data.languages,
-    cities: response.data.cities,
-    cities_list: response.data.cities_list,
-    cities100: response.data.cities100.map((city: { city: any; country: any; thumbnail: { url: any; }; flag: { url: any; }; }) => {
-      return {
-        city: city.city,
-        country: city.country,
-        thumbnail: city.thumbnail.url,
-        flag:city.flag.url,
-      }
-    })
-  }
+  const res = await api.get<ContinentResponse>(`/continents/${continents}`)
+  const posts = await res.data
 
-  return {
-    props: {
-      continent
-    },
-    revalidate: 1800
-  }
+  return { props: posts }
 }
-
