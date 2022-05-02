@@ -20,7 +20,7 @@ export function Beach() {
     >
       {isWideVersion &&
         (
-          <Flex w='5.313rem' h='5.313' justifyContent='center' mx='auto' mb='1rem'>
+          <Flex w='5.313rem' h='5.313rem' justifyContent='center' mx='auto' mb='1rem'>
             <Image src='./img/surf1.png' alt='beach' />
           </Flex>
         )}
