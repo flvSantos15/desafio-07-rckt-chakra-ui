@@ -8,8 +8,7 @@ import { Slider } from '../modules/Home/Slider'
 function Home() {
   const { colorMode } = useColorMode()
   return (
-    <Flex direction='column'>
-
+    <Flex direction="column">
       <Head>
         <title>WorldTrip - Home</title>
         <meta property="og:image" content="/ogimage.png" />
@@ -24,10 +23,10 @@ function Home() {
 
       <Travel />
 
-      <Box w='5.625rem' h='10px' justifyContent='center' mb='4rem' mx='auto' >
+      <Box w="5.625rem" h="10px" justifyContent="center" mb="4rem" mx="auto">
         <Divider
-          w='100%'
-          h='0.05rem'
+          w="100%"
+          h="0.05rem"
           bg={colorMode === 'light' ? '#47585B' : '#fff'}
         />
       </Box>
@@ -35,13 +34,17 @@ function Home() {
       <Heading
         textAlign="center"
         fontWeight="500"
-        mb={["5","14"]}
-        fontSize={["2xl", "3xl", "4xl"]}
-        color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+        mb={['5', '14']}
+        fontSize={['2xl', '3xl', '4xl']}
+        color={
+          colorMode === 'light' ? 'default.dark.text' : 'default.light.text'
+        }
       >
-        Vamos nessa?<br/>Então escolha seu continente
+        Vamos nessa?
+        <br />
+        Então escolha seu continente
       </Heading>
-    
+
       <Slider />
     </Flex>
   )

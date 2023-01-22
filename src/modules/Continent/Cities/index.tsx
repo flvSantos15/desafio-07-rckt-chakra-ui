@@ -6,31 +6,33 @@ export function Cities() {
   const { colorMode } = useColorMode()
   const { allCities, continent } = useContinent()
 
-  const cities_list = allCities.filter(item => item.continent === continent)
+  const cities_list = allCities.filter((item) => item.continent === continent)
 
   return (
     <Flex
       w={['300px', '1160px']}
       h={['100%', '700px']}
-      mx='auto'
+      mx="auto"
       mb={['0', '4rem']}
-      flexDirection='column'
+      flexDirection="column"
     >
-      <Text 
-        fontWeight='500'
+      <Text
+        fontWeight="500"
         fontSize={['3xl', '2.25rem']}
-        mb='2rem'
-        color={colorMode === 'light' ? 'default.dark.text' : 'default.light.text'}
+        mb="2rem"
+        color={
+          colorMode === 'light' ? 'default.dark.text' : 'default.light.text'
+        }
       >
         Cidades +100
       </Text>
-      <SimpleGrid 
-        columns={[1, 4]} 
-        spacing='4' 
+      <SimpleGrid
+        columns={[1, 4]}
+        spacing="4"
         mb={['2rem', '4rem']}
-        mx={{base: 'auto', xl: '0'}}
+        mx={{ base: 'auto', xl: '0' }}
       >
-        {cities_list.map(item => (
+        {cities_list.map((item) => (
           <City
             key={item.id}
             alt={item.id as string}

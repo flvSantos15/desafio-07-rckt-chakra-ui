@@ -17,6 +17,7 @@
     "@prismicio/client": "^6.4.3",
     "axios": "^0.26.1",
     "framer-motion": "^6",
+    "json-server": "^0.17.1",
     "next": "12.1.0",
     "nextjs-progressbar": "^0.0.14",
     "prismic-dom": "^2.2.7",

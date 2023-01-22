@@ -1,22 +1,28 @@
-import { Flex, Heading, Text, Link } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Keyboard, Navigation, Pagination } from 'swiper';
-import { useContinent } from 'context/ContinentContext';
+import { Flex, Heading, Text, Link } from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Keyboard, Navigation, Pagination } from 'swiper'
+import { useContinent } from 'context/ContinentContext'
 
 export function Slider() {
   const { allContinent } = useContinent()
-  
+
   return (
-    <Flex w={['100%', "100%"]} h={["250px", "450px"]} maxW="1240px" mx="auto" mb={["5", "10"]}>
+    <Flex
+      w={['100%', '100%']}
+      h={['250px', '450px']}
+      maxW="1240px"
+      mx="auto"
+      mb={['5', '10']}
+    >
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
         keyboard={{
-          enabled: true,
+          enabled: true
         }}
         pagination={{
-          clickable: true,
+          clickable: true
         }}
         navigation={true}
         modules={[Keyboard, Pagination, Navigation]}
@@ -27,9 +33,10 @@ export function Slider() {
           display: 'flex'
         }}
       >
-        {allContinent.map(item => (
-          <>
+        {allContinent.map((item, index) => {
+          return (
             <SwiperSlide
+              key={index}
               style={{
                 width: '1240px',
                 height: '450px',
@@ -37,10 +44,10 @@ export function Slider() {
               }}
             >
               <Flex
-                mx='auto'
+                mx="auto"
                 pt={['2.5rem', '165px']}
-                w={['100%', "100%"]}
-                h={['250px', "100%"]}
+                w={['100%', '100%']}
+                h={['250px', '100%']}
                 align="center"
                 justify="center"
                 direction="column"
@@ -52,29 +59,29 @@ export function Slider() {
               >
                 <NextLink href={`/continent/${item.id}`} passHref>
                   <Link>
-                        <Heading 
-                          fontSize={["3xl", "4xl", "5xl"]} 
-                          color="#fff"
-                          textShadow='xs #000'
-                          fontWeight="bold"
-                        >
-                          {item.title}
-                        </Heading>
-                        <Text 
-                          fontWeight="bold" 
-                          color="#fff"
-                          textShadow='xs #000'
-                          fontSize={["0.8rem", "1xl", "2xl"]} 
-                          mt={["2", "4"]}
-                        >
-                          {item.description}
-                        </Text>
+                    <Heading
+                      fontSize={['3xl', '4xl', '5xl']}
+                      color="#fff"
+                      textShadow="xs #000"
+                      fontWeight="bold"
+                    >
+                      {item.title}
+                    </Heading>
+                    <Text
+                      fontWeight="bold"
+                      color="#fff"
+                      textShadow="xs #000"
+                      fontSize={['0.8rem', '1xl', '2xl']}
+                      mt={['2', '4']}
+                    >
+                      {item.description}
+                    </Text>
                   </Link>
                 </NextLink>
               </Flex>
             </SwiperSlide>
-          </>
-        ))}
+          )
+        })}
       </Swiper>
     </Flex>
   )
