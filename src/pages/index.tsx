@@ -8,7 +8,7 @@ import { Slider } from '../modules/Home/Slider'
 function Home() {
   const { colorMode } = useColorMode()
   return (
-    <Flex direction="column">
+    <>
       <Head>
         <title>WorldTrip - Home</title>
         <meta property="og:image" content="/ogimage.png" />
@@ -19,34 +19,36 @@ function Home() {
         <meta name="twitter:title" content="WorldTrip" />
       </Head>
 
-      <Banner />
+      <Flex direction="column">
+        <Banner />
 
-      <Travel />
+        <Travel />
 
-      <Box w="5.625rem" h="10px" justifyContent="center" mb="4rem" mx="auto">
-        <Divider
-          w="100%"
-          h="0.05rem"
-          bg={colorMode === 'light' ? '#47585B' : '#fff'}
-        />
-      </Box>
+        <Box w="5.625rem" h="10px" justifyContent="center" mb="4rem" mx="auto">
+          <Divider
+            w="100%"
+            h="0.05rem"
+            bg={colorMode === 'light' ? '#47585B' : '#fff'}
+          />
+        </Box>
 
-      <Heading
-        textAlign="center"
-        fontWeight="500"
-        mb={['5', '14']}
-        fontSize={['2xl', '3xl', '4xl']}
-        color={
-          colorMode === 'light' ? 'default.dark.text' : 'default.light.text'
-        }
-      >
-        Vamos nessa?
-        <br />
-        Então escolha seu continente
-      </Heading>
+        <Heading
+          textAlign="center"
+          fontWeight="500"
+          mb={['5', '14']}
+          fontSize={['2xl', '3xl', '4xl']}
+          color={
+            colorMode === 'light' ? 'default.dark.text' : 'default.light.text'
+          }
+        >
+          Vamos nessa?
+          <br />
+          Então escolha seu continente
+        </Heading>
 
-      <Slider />
-    </Flex>
+        <Slider />
+      </Flex>
+    </>
   )
 }
 

@@ -1,5 +1,5 @@
 import { Flex, Text, SimpleGrid, useColorMode } from '@chakra-ui/react'
-import { useContinent } from 'context/ContinentContext'
+import { useContinent } from '../../../context/continent-context'
 import { City } from './City'
 
 export function Cities() {

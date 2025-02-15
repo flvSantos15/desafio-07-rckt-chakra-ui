@@ -6,8 +6,9 @@ import {
   useEffect,
   useState
 } from 'react'
-import { getPhotosByCity } from '../shared/services/unSplashService'
+import { getPhotosByCityService } from '../shared/services/unSplash-service'
 import { GetPhotoResponseView } from '../shared/interfaces/response-views/unsplash'
+
 interface UnSplashContextData {
   photosByCity: GetPhotoResponseView[]
   getNameOfCity: (city: string) => Promise<void>
@@ -19,21 +20,23 @@ interface UnSplashProviderProps {
 
 export const UnSplashContext = createContext({} as UnSplashContextData)
 
-
 export function UnSplashProvider({ children }: UnSplashProviderProps) {
   const [photosByCity, setPhotosByCity] = useState<GetPhotoResponseView[]>([])
   const [city, setCity] = useState('')
 
+  async function getPhotosByCity() {
+    const photos = await getPhotosByCityService({ city })
+
+    setPhotosByCity(photos)
+  }
+
   useEffect(() => {
     if (city) {
-      getPhotosByCity({city}).then((res) => {
-        const response = res.data
-        setPhotosByCity(response)
-      })
+      getPhotosByCity()
     }
   }, [city])
 
-  async function getNameOfCity(city: string){
+  async function getNameOfCity(city: string) {
     setCity(city)
   }
 

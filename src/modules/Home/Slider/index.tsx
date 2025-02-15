@@ -2,7 +2,7 @@ import { Flex, Heading, Text, Link } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Navigation, Pagination } from 'swiper'
-import { useContinent } from 'context/ContinentContext'
+import { useContinent } from '../../../context/continent-context'
 
 export function Slider() {
   const { allContinent } = useContinent()
@@ -43,42 +43,44 @@ export function Slider() {
                 margin: 'auto'
               }}
             >
-              <Flex
-                mx="auto"
-                pt={['2.5rem', '165px']}
-                w={['100%', '100%']}
-                h={['250px', '100%']}
-                align="center"
-                justify="center"
-                direction="column"
-                bgImage={`${item.image}`}
-                bgPosition="center"
-                bgRepeat="no-repeat"
-                bgSize="cover"
-                textAlign="center"
-              >
-                <NextLink href={`/continent/${item.id}`} passHref>
-                  <Link>
-                    <Heading
-                      fontSize={['3xl', '4xl', '5xl']}
-                      color="#fff"
-                      textShadow="xs #000"
-                      fontWeight="bold"
-                    >
-                      {item.title}
-                    </Heading>
-                    <Text
-                      fontWeight="bold"
-                      color="#fff"
-                      textShadow="xs #000"
-                      fontSize={['0.8rem', '1xl', '2xl']}
-                      mt={['2', '4']}
-                    >
-                      {item.description}
-                    </Text>
-                  </Link>
-                </NextLink>
-              </Flex>
+              <>
+                <Flex
+                  mx="auto"
+                  pt={['2.5rem', '165px']}
+                  w={['100%', '100%']}
+                  h={['250px', '100%']}
+                  align="center"
+                  justify="center"
+                  direction="column"
+                  bgImage={`${item.image}`}
+                  bgPosition="center"
+                  bgRepeat="no-repeat"
+                  bgSize="cover"
+                  textAlign="center"
+                >
+                  <NextLink href={`/continent/${item.id}`} passHref>
+                    <Link>
+                      <Heading
+                        fontSize={['3xl', '4xl', '5xl']}
+                        color="#fff"
+                        textShadow="xs #000"
+                        fontWeight="bold"
+                      >
+                        {item.title}
+                      </Heading>
+                      <Text
+                        fontWeight="bold"
+                        color="#fff"
+                        textShadow="xs #000"
+                        fontSize={['0.8rem', '1xl', '2xl']}
+                        mt={['2', '4']}
+                      >
+                        {item.description}
+                      </Text>
+                    </Link>
+                  </NextLink>
+                </Flex>
+              </>
             </SwiperSlide>
           )
         })}

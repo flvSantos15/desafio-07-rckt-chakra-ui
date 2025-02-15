@@ -6,13 +6,13 @@ import 'swiper/css/bundle'
 
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import "swiper/css";
+import 'swiper/css'
 
-import '../themes/slider.scss';
+import '../themes/slider.scss'
 
 import { Header } from '../components/Header'
-import { ContinentProvider } from '../context/ContinentContext'
-import { UnSplashProvider } from '../context/UnSplashContext'
+import { ContinentProvider } from '../context/continent-context'
+import { UnSplashProvider } from '../context/unSplash-context'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -2,17 +2,15 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 
-// import axios from 'axios'
-
-import { ContinentResponse } from 'shared/interfaces/models/Continent'
-import { useContinent } from 'context/ContinentContext'
+import { ContinentResponse } from '../../shared/interfaces/models/Continent'
+import { useContinent } from '../../context/continent-context'
 
 import { Flex } from '@chakra-ui/layout'
 
-import { ContinentBanner } from 'modules/Continent/ContinentBanner'
-import { ContentDestiny } from 'modules/Continent/ContentDestiny'
-import { Cities } from 'modules/Continent/Cities'
-import { Loading } from 'modules/Continent/Loading'
+import { ContinentBanner } from '../../modules/Continent/ContinentBanner'
+import { ContentDestiny } from '../../modules/Continent/ContentDestiny'
+import { Cities } from '../../modules/Continent/Cities'
+import { Loading } from '../../modules/Continent/Loading'
 import { useEffect, useState } from 'react'
 
 export default function Continent() {

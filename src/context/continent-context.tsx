@@ -7,13 +7,14 @@ import {
   useState
 } from 'react'
 import {
-  getAllContinentsResponse,
-  getAllCitiesResponse
-} from '../shared/services/ContinentService'
+  getAllContinentsService,
+  getAllCitiesService
+} from '../shared/services/continent-service'
 import {
   ContinentResponse,
   CityResponse
 } from '../shared/interfaces/models/Continent'
+
 interface ContinentContextData {
   continent: string
   allContinent: ContinentResponse[]
@@ -32,16 +33,21 @@ export function ContinentProvider({ children }: ContinentProviderProps) {
   const [allCities, setAllCities] = useState<CityResponse[]>([])
   const [continent, setContinent] = useState('')
 
-  useEffect(() => {
-    getAllContinentsResponse().then((res) => {
-      const response = res.data
-      setAllContinent(response)
-    })
+  async function getAllContinents() {
+    const continent = await getAllContinentsService()
 
-    getAllCitiesResponse().then((res) => {
-      const response = res.data
-      setAllCities(response)
-    })
+    setAllContinent(continent)
+  }
+
+  async function getAllCities() {
+    const cities = await getAllCitiesService()
+
+    setAllCities(cities)
+  }
+
+  useEffect(() => {
+    getAllContinents()
+    getAllCities()
   }, [])
 
   async function getContinent(slug: string) {
